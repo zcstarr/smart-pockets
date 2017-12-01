@@ -118,8 +118,8 @@ contract Pockets is Ownable {
     }
 
     function getNextBlockDeadline(uint256 paymentFreq)
-    private 
-    returns(uint256)
+        private 
+        returns(uint256)
     {
         return block.number + paymentFreq / trustedRegistry.getAvgBlockTime();
     }
@@ -161,10 +161,10 @@ contract Pockets is Ownable {
     }
 
     function getPocket(address providerAddress) 
-    public 
-    constant
-    onlyOwnerOrProvider(providerAddress) 
-    returns (uint256 , bool, bool, uint256, uint256, uint256)
+        public 
+        constant
+        onlyOwnerOrProvider(providerAddress) 
+        returns (uint256 , bool, bool, uint256, uint256, uint256)
     {
         var pocket = pockets[providerAddress];
         return (
