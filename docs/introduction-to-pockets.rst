@@ -54,10 +54,6 @@ PocketsHub Inheritance Pattern
 
     contract SubscriptionService is PocketsHub{  
 
-        PocketsHub public pocketsHub;
-        address public owner;
-        mapping (address => address) public userRegistrations;
-
         function SubscriptionService()
           public 
         {
@@ -78,4 +74,4 @@ PocketsHub Inheritance Pattern
 
     }
     
- The first line of code;
+The first line of code;
