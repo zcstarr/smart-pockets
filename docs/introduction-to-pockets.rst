@@ -36,10 +36,8 @@ PocketsHub Composition Pattern
         function newUser(bytes plan)
           public
         {
+            //The owner of the pocket is the Service not the user
             pocketAddress = pocketsHub.newPocket();
-            userRegistry[msg.sender] = pocketAddress;
-            Pocket pocket = Pocket(pocketAddress);
-            pocket.registerService(plan);
         }
 
     }
@@ -64,14 +62,12 @@ PocketsHub Inheritance Pattern
             trustedRegistry.registerPlan('Bronze');
         }
 
-        function newUser(bytes plan)
+        function newUser()
           public
         {
-            pocketAddress = pocketsHub.newPocket();
-            Pocket pocket = Pocket(pocketAddress);
-            pocket.registerService(plan);
+            //The owner of the pocket is the user
+            newPocket();
         }
-
     }
     
 The first line of code;
