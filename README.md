@@ -1,7 +1,7 @@
 # Pockets
 
 
-Pockets is a library for writing reoccurring payment [Smart Contracts](https://en.wikipedia.org/wiki/Smart_contract) on Ethereum.
+Pockets is a library for writing reccurring payment [Smart Contracts](https://en.wikipedia.org/wiki/Smart_contract) on Ethereum.
 
 
 ## Getting Started
@@ -92,6 +92,7 @@ hub.newPocket({from: web3.eth.accounts[1]}).then((tx)=>pocket = Pockets.at(tx.lo
 // A user sends money to the pocket 
 web3.eth.sendTransaction({from: web3.eth.accounts[3], value: web3.toWei(5,'ether') , to:pocket.address}) 
 // The user signs up for the service pocket.registerService(service.address,’CoolPlan’);
-```js
+```
+
 ## License
 Code released under the [MIT License](https://github.com/Pockets/smart-pockets/blob/master/LICENSE).
