@@ -25,6 +25,7 @@ contract PocketsHub is Ownable {
 
     function newPocket() 
         public 
+        returns(Pockets)
     {
         Pockets trustedPocket = new Pockets(msg.sender, trustedRegistry);
         trustedRegistry.registerPocket(trustedPocket,msg.sender,VERSION);
@@ -34,10 +35,12 @@ contract PocketsHub is Ownable {
             trustedRegistry, 
             VERSION
         );
+        return trustedPocket;
     }
  
     function newService() 
         public 
+        returns(Service)
     {
         Service trustedService = new Service(msg.sender, trustedRegistry);
         trustedRegistry.registerService(trustedService,msg.sender, VERSION);
@@ -47,7 +50,7 @@ contract PocketsHub is Ownable {
             trustedRegistry, 
             VERSION
         );
-
+        return trustedService;
     }
 
     function setAvgBlockTime(uint256 avgBlockTime)
