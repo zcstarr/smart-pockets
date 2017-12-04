@@ -101,6 +101,13 @@ contract Service is Ownable {
         return getPocket(addr);
     }
 
+    function getNumberOfPockets()
+        constant
+        returns(uint256)
+    {
+        return pocketListing.length;
+    }
+
     function getPocket(address pocket) 
         constant
         returns(address,bool, bytes)
