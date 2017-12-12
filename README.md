@@ -62,10 +62,9 @@ https://github.com/Pockets/smart-pockets/blob/master/CONTRIBUTING.md
 - test/ - Unit and integration tests for the Pockets/Service/PocketHub and Registry
 
 ### Concepts
-- PocketsHub is a factory contract that takes an average block time and an Owner
- it also deploys a public Registry that shows all the pockets and services registered with this hub. It is used to deploy new Service Contracts and Pocket Contracts
+- PocketsHub is a factory contract that takes an average block time and an Owner. It also deploys a public Registry that shows all the pockets and services registered with this hub. It is used to deploy new Service Contracts and Pocket Contracts
 
-- Registry is a contract that  contains the registration for a Service, A Service Plan, and Pockets. this allows pockets and service providers to verify that they were produced by the hub and valid pocket/service contracts. Additionally it allows for service providers to communicate to pocket contracts what a subscription does.
+- Registry is a contract that contains the registration for a Service, a service plan, and Pockets. This allows pockets and service providers to verify that they were produced by the hub and valid pocket/service contracts. Additionally it allows for service providers to communicate to pocket contracts what a subscription does.
 
 - Pockets is a contract that a user uses to register for service, or allow users to withdraw from a pocket on a one-shot or recurring basis 
 
@@ -74,24 +73,29 @@ https://github.com/Pockets/smart-pockets/blob/master/CONTRIBUTING.md
 
 The process works as follows
 ```js
-//A pocket hub is deployed (truffle contract defaults to 17000ms)
+//A PocketHub is deployed with an 'initial average block time of 17 seconds'
 PocketsHub.deployed().then((i)=> hub = i);
 
-//The pockets contract deploys a registry as well which the hub owns
+//The pockets hub contract deploys a registry. The hub owns this registry
 hub.trustedRegistry.call().then((address) => {registry = Registry.at(address)});
 
-// A service provider creates a new service  hub.newService().then((tx)=> { service = Service.at(tx.logs[0].args.service)})
+// A service provider creates a new service 
+hub.newService().then((tx)=> { service = Service.at(tx.logs[0].args.service)})
 
-//The service provider owner registers a new plan
-// (serviceAddress,amount,frequency,initialDeposit,recurring,’name’)
+// The service provider owner registers a new plan
+// The arguments are (serviceAddress, amount, frequency, initialDeposit, recurring, ’name’)
 registry.registerPlan(service.address,web3.toWei(0.01,'ether'),34000,0,true,'CoolPlan')
 
 //A user creates a pocket
-hub.newPocket({from: web3.eth.accounts[1]}).then((tx)=>pocket = Pockets.at(tx.logs[0].args.pocket));
+hub.newPocket({from: web3.eth.accounts[1]}).then((tx) => pocket = Pockets.at(tx.logs[0].args.pocket));
 
 // A user sends money to the pocket 
 web3.eth.sendTransaction({from: web3.eth.accounts[3], value: web3.toWei(5,'ether') , to:pocket.address}) 
 // The user signs up for the service pocket.registerService(service.address,’CoolPlan’);
+```
+The recurring charges work as follows
+```js
+
 ```
 
 ## License
