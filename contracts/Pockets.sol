@@ -46,7 +46,7 @@ contract Pockets is Ownable {
        uint256 initialDeposit,
        bool subscription
     );
-    event LogOwner( address sender);
+    event LogOwner(address sender);
     event LogRegisterAddress(
        address sender, 
        uint256 paymentAmount, 
@@ -58,11 +58,14 @@ contract Pockets is Ownable {
     event LogRequestFunds(address sender,
                           uint256 limit,
                           uint256 newBalance);
-    event LogWithdraw(address sender, uint256 paymentAmount,
-                           uint256 newBalance );
-    event LogDeposit( address pocket,
-                       uint256 amount, 
-                       uint256 newBalance);
+    event LogWithdraw(address sender,
+                      uint256 paymentAmount,
+                      uint256 newBalance);
+
+    event LogDeposit(address pocket,
+                     uint256 amount,
+                     uint256 newBalance);
+
     event LogWithdrawFromContract(uint256 amount, uint256 newBalance);
     event LogRefund(address pocket, uint256 amount,uint256 oldBalance, uint256 newBalance);
     event LogDepositToContract(address sender, uint256 amount);
