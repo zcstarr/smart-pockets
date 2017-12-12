@@ -21,7 +21,7 @@ contract Pockets is Ownable {
     Registry public trustedRegistry;
     
     modifier onlyActive(address providerAddress){
-        require(pockets[providerAddress].active == true);
+        require(pockets[providerAddress].active);
         _;
     }
     
@@ -36,7 +36,7 @@ contract Pockets is Ownable {
     }
 
     modifier onlyUnregistered(address providerAddress){
-        require(pockets[providerAddress].active == false);
+        require(!pockets[providerAddress].active);
         _;
     }
     event LogRegisterService(
