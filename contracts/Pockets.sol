@@ -258,6 +258,14 @@ contract Pockets is Ownable {
         );
     }
 
+    function transferOwnership(address newOwner)
+        public
+        onlyOwner
+    {
+        trustedRegistry.changePocketOwnership(newOwner);
+        super.transferOwnership(newOwner);
+    }
+
     function kill() 
         onlyOwner
     {

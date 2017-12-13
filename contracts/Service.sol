@@ -93,6 +93,14 @@ contract Service is Ownable {
         LogWithdraw(pocketAddress, amount);
     }
 
+    function transferOwnership(address newOwner)
+        public
+        onlyOwner
+    {
+        trustedRegistry.changeServiceOwnership(newOwner);
+        super.transferOwnership(newOwner);
+    }
+
     function getPocketByIdx(uint256 idx)
         constant
         returns(address, bool, bytes) 

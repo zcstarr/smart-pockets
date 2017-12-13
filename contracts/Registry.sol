@@ -123,6 +123,18 @@ contract Registry is Ownable {
         return pocketRegistry[pocketContract].owner;
     }
 
+    function changePocketOwnership(address newOwner)
+        public
+    {
+        pocketRegistry[msg.sender].owner = newOwner;
+    }    
+
+    function changeServiceOwnership(address newOwner)
+        public
+    {
+        serviceRegistry[msg.sender].owner = newOwner;
+    } 
+
     function registerService(address service, address owner, uint version)
         public 
         onlyOwner
