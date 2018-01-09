@@ -167,7 +167,6 @@ contract Pockets is Ownable {
     function getPocket(address providerAddress) 
         public 
         constant
-        onlyOwnerOrProvider(providerAddress) 
         returns (uint256 , bool, bool, uint256, uint256, uint256)
     {
         var pocket = pockets[providerAddress];
