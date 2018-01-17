@@ -37,7 +37,7 @@ contract SubscriptionHub is PocketsHub {
 
 ## Developer Resources
 
-- Read documentation: smart-pockets.readthedocs.io/en/latest/
+- Sample Project: https://github.com/zcstarr/pockets-sample
 
 Interested in contributing to Pockets?
 
@@ -91,7 +91,17 @@ hub.newPocket({from: web3.eth.accounts[1]}).then((tx) => pocket = Pockets.at(tx.
 
 // A user sends money to the pocket 
 web3.eth.sendTransaction({from: web3.eth.accounts[3], value: web3.toWei(5,'ether') , to:pocket.address}) 
-// The user signs up for the service pocket.registerService(service.address,’CoolPlan’);
+
+// The user signs up for the service;
+pocket.registerService(service.address, 'CoolPlan');
+
+// The service provider periodically checks its subscribers to see who they should collect from
+// The service just places a hold on the subscription amount
+service.requestHold(pocket.address)
+
+// The service withdraws some amount from the pocket 
+service.withdraw(pocket.address, web3.toWei(0.005,'ether'));
+
 ```
 The recurring charges work as follows
 ```js
