@@ -39,10 +39,6 @@ contract SubscriptionHub is PocketsHub {
 
 - Sample Project: https://github.com/zcstarr/pockets-sample
 
-Interested in contributing to Pockets?
-
-https://github.com/Pockets/smart-pockets/blob/master/CONTRIBUTING.md
-
 ## Project Overview
 
 ### Organization
@@ -103,10 +99,16 @@ service.requestHold(pocket.address)
 service.withdraw(pocket.address, web3.toWei(0.005,'ether'));
 
 ```
-The recurring charges work as follows
-```js
 
-```
+### Up Next ?
+Off chain state/payment channels 
+ERC-20 Token support
+
+### Wanna Help 
+Please contribute! Just create a PR or file an issue. 
+
+### Special Thanks
+Shout out to [Eujern Lim](https://github.com/eujern) for the PRs and discussions
 
 ## License
 Code released under the [MIT License](https://github.com/Pockets/smart-pockets/blob/master/LICENSE).
