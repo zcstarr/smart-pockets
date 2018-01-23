@@ -101,7 +101,9 @@ service.withdraw(pocket.address, web3.toWei(0.005,'ether'));
 ```
 
 ### Up Next ?
+
 Off chain state/payment channels 
+
 ERC-20 Token support
 
 ### Wanna Help 
