@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "ethereumjs-testrpc": "^6.0.1",
+    "express": "^4.16.2",
+    "nan": "^2.7.0",
+    "truffle-contract": "^3.0.1",
+    "web3": "0.14",
+    "websocket": "^1.0.25",
+    "yargs": "^10.0.3",
+    "zeppelin-solidity": "^1.3.0"
+  },
+  "name": "pockets",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:zcstarr/smart-pockets.git",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.12.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-promise": "^3.6.0"
+  }
+}
